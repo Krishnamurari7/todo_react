@@ -17,8 +17,6 @@ function App() {
       setTodos(todos)
     }
   }, [])
-  
-
   const saveToLS = (params) => {
     localStorage.setItem("todos", JSON.stringify(todos))
   }
@@ -27,9 +25,6 @@ function App() {
     setshowFinished(!showFinished)
   }
   
-  
-
-
   const handleEdit = (e, id)=>{ 
     let t = todos.filter(i=>i.id === id) 
     setTodo(t[0].todo)
@@ -68,19 +63,18 @@ function App() {
     setTodos(newTodos)
     saveToLS()
   }
-  
 
   return (
     < >
     <Navbar/> 
        <div className="mx-3 md:container md:mx-auto my-5 rounded-xl p-5 bg-violet-100 min-h-[80vh] md:w-[35%]">
-        <h1 className='font-bold text-center text-3xl'>iTask - Manage your todos at one place</h1>
+        <h1 className='font-bold text-center text-3xl'>MyTask </h1>
          <div className="addTodo my-5 flex flex-col gap-4">
           <h2 className='text-2xl font-bold'>Add a Todo</h2>
           <div className="flex">
 
           <input  onChange={handleChange} value={todo} type="text" className='w-full rounded-full px-5 py-1' />
-          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-800 mx-2 rounded-full hover:bg-violet-950 disabled:bg-violet-500 p-4 py-2 text-sm font-bold text-white'>Save</button>
+          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-800 mx-2 rounded-full hover:bg-violet-950 disabled:bg-violet-500 p-4 py-2 text-sm font-bold text-white'>Add</button>
           </div>
          </div>
          <input className='my-4' id='show' onChange={toggleFinished} type="checkbox" checked={showFinished} /> 
